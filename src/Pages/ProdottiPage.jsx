@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Card from "../components/Card"
 import axios from "axios"
 
@@ -7,10 +7,15 @@ export default function ProdottiPage() {
 
     const api = 'https://fakestoreapi.com/products'
     const [charat, setCharat] = useState([])
-    axios.get(api)
-        .then(res => {
-            setCharat(res.data)
-        }).catch(err => console.log(err))
+    useEffect(() => {
+        getArray()
+    }, [])
+    function getArray() {
+        axios.get(api)
+            .then(res => {
+                setCharat(res.data)
+            }).catch(err => console.log(err))
+    }
 
 
     return (
