@@ -43,10 +43,10 @@ h1 {
 
 .chi_siamo {
 
-
   li {
     border: solid 1px lightgray;
     border-radius: 1rem;
+    list-style: none;
 
   }
 }

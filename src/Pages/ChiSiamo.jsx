@@ -5,7 +5,7 @@ export default function ChiSiamo() {
         <>
             <h1>NOI SIAMO IL TUO NEGOZIO ONLINE</h1>
             <div className="container">
-                <ul className="chi_siamo row list-unstiled text-center justify-content-around">
+                <ul className="chi_siamo row text-center justify-content-around">
                     <li className="col-5 p-3 my-5">
                         <h3 className="text-light">LA NOSTRA STORIA</h3>
                         <p className="text-light">
