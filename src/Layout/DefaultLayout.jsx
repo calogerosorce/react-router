@@ -7,7 +7,7 @@ export default function DefaultLayout() {
     return (
         <>
             <Header />
-            <div className="container">
+            <div className="content">
                 <Outlet />
 
             </div>
