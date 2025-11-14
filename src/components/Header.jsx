@@ -9,9 +9,12 @@ export default function Header() {
                 className="navbar navbar-expand-sm navbar-light bg-light"
             >
                 <div className="container">
-                    <NavLink className="navbar-brand" to="/"><strong>Boolezon</strong></NavLink>
+                    <NavLink className="navbar-brand" to="/"><strong>Boolzon</strong></NavLink>
                     <div className="collapse navbar-collapse" id="collapsibleNavId">
                         <ul className="navbar-nav me-auto mt-2 mt-lg-0">
+                            <li className="nav-item">
+                                <NavLink className="nav-link active" to="/" aria-current="page">Home</NavLink>
+                            </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link active" to="/contacts" aria-current="page">Chi Siamo</NavLink>
                             </li>
