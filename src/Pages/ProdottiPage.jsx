@@ -7,9 +7,7 @@ export default function ProdottiPage() {
 
     const api = 'https://fakestoreapi.com/products'
     const [charat, setCharat] = useState([])
-    useEffect(() => {
-        getArray()
-    }, [])
+
     function getArray() {
         axios.get(api)
             .then(res => {
@@ -17,6 +15,9 @@ export default function ProdottiPage() {
             }).catch(err => console.log(err))
     }
 
+    useEffect(() => {
+        getArray()
+    }, [])
 
     return (
         <>
