@@ -17,11 +17,17 @@ export default function ProdottoPage() {
     function getArray() {
         axios.get(api)
             .then(res => {
-                setCharat(res.data)
-                setLoading(false)
+                if (res.data === '') {
+                    navigate('/prodotti')
+                } else {
+
+                    setCharat(res.data)
+                    setLoading(false)
+                }
+
+
             }).catch(err => {
                 console.log(err)
-                navigate('/prodotti')
                 setLoading(false)
             })
     }
@@ -53,8 +59,8 @@ export default function ProdottoPage() {
                     <button>AGGIUNGI AL CARRELLO</button>
                 </div>
                 <div className="btn-ne">
-                    <button type="button" onClick={() => navigate(parseInt(id) < 1 ? `/prodotti/${parseInt(id) - 1}` : - 1)}>BACK</button>
-                    <button type="button" onClick={() => navigate(parseInt(id) > id - 1 ? `/prodotti/${parseInt(id) + 1}` : - 1)}>NEXT</button>
+                    <button type="button" onClick={() => navigate(`/prodotti/${parseInt(id) - 1}`)}>BACK</button>
+                    <button type="button" onClick={() => navigate(`/prodotti/${parseInt(id) + 1}`)}>NEXT</button>
                 </div>
             </div>
         </div>
