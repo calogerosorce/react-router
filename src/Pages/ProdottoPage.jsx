@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { Helix } from 'ldrs/react'
 import 'ldrs/react/Helix.css'
 
@@ -9,9 +9,10 @@ import 'ldrs/react/Helix.css'
 export default function ProdottoPage() {
 
 
-    let { id, "*": rest } = useParams()
+    let { id } = useParams()
     const [charat, setCharat] = useState({})
     const [loading, setLoading] = useState(true)
+    const navigate = useNavigate();
     const api = `https://fakestoreapi.com/products/${id}`
     function getArray() {
         axios.get(api)
@@ -20,6 +21,7 @@ export default function ProdottoPage() {
                 setLoading(false)
             }).catch(err => {
                 console.log(err)
+                navigate('/prodotti')
                 setLoading(false)
             })
     }
@@ -49,6 +51,10 @@ export default function ProdottoPage() {
                 <div className="price">
                     <h3 className="p-3">{charat.price}€</h3>
                     <button>AGGIUNGI AL CARRELLO</button>
+                </div>
+                <div className="btn-ne">
+                    <button type="button" onClick={() => navigate(parseInt(id) < 1 ? `/prodotti/${parseInt(id) - 1}` : - 1)}>BACK</button>
+                    <button type="button" onClick={() => navigate(parseInt(id) > id - 1 ? `/prodotti/${parseInt(id) + 1}` : - 1)}>NEXT</button>
                 </div>
             </div>
         </div>
