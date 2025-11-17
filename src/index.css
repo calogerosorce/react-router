@@ -56,6 +56,28 @@ a {
   }
 }
 
+.single {
+  color: #909190;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.price {
+  display: flex;
+
+  button {
+    padding: 8px;
+    color: white;
+    border-color: #0282f9;
+    background-color: transparent;
+    border-radius: 1rem;
+  }
+
+}
+
 .all {
   background-color: #1d1c1c;
   color: white;
