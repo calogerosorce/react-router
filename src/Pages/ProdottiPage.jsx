@@ -3,10 +3,13 @@ import Card from "../components/Card"
 import axios from "axios"
 
 
+
+
 export default function ProdottiPage() {
 
     const api = 'https://fakestoreapi.com/products'
     const [charat, setCharat] = useState([])
+
 
     function getArray() {
         axios.get(api)
@@ -25,7 +28,7 @@ export default function ProdottiPage() {
             <div className="container">
                 <div className="row justify-content-center">
                     {charat.map(items => (
-                        <Card key={items.id} title={items.title} image={items.image} category={items.category} price={items.price} />
+                        <Card key={items.id} title={items.title} image={items.image} category={items.category} price={items.price} id={items.id} />
                     ))}
                 </div>
             </div>

@@ -24,10 +24,15 @@ h1 {
   background-color: #1d1c1c;
 }
 
+a {
+  text-decoration: none;
+}
+
 .card {
   background-color: lightgray;
-  color: #1d1c1c;
   border: none;
+
+
 
   p {
     text-transform: uppercase;
