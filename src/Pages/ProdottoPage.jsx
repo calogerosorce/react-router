@@ -1,24 +1,44 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import { Helix } from 'ldrs/react'
+import 'ldrs/react/Helix.css'
+
 
 
 export default function ProdottoPage() {
 
-    const { id } = useParams()
-    const api = `https://fakestoreapi.com/products/${id}`
-    const [charat, setCharat] = useState([])
 
+    let { id, "*": rest } = useParams()
+    const [charat, setCharat] = useState({})
+    const [loading, setLoading] = useState(true)
+    const api = `https://fakestoreapi.com/products/${id}`
     function getArray() {
         axios.get(api)
             .then(res => {
                 setCharat(res.data)
-            }).catch(err => console.log(err))
+                setLoading(false)
+            }).catch(err => {
+                console.log(err)
+                setLoading(false)
+            })
     }
 
     useEffect(() => {
         getArray()
-    }, [])
+    }, [id])
+
+    if (loading) {
+        return (
+            <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+                <Helix
+                    size="45"
+                    speed="2.5"
+                    color="black"
+                />
+            </div>
+        )
+    }
 
     return (
         <div className="container p-5">
