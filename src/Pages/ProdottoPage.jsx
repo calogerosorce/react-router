@@ -3,7 +3,8 @@ import axios from "axios"
 import { useNavigate, useParams } from "react-router-dom"
 import { Helix } from 'ldrs/react'
 import 'ldrs/react/Helix.css'
-
+import { useContext } from "react";
+import CountContext from '../contexts/CountContext';
 
 
 export default function ProdottoPage() {
@@ -35,6 +36,9 @@ export default function ProdottoPage() {
         getArray()
     }, [id])
 
+    const { setShop, shop, myCounter, count, addShop } = useContext(CountContext);
+
+
     if (loading) {
         return (
             <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
@@ -49,13 +53,14 @@ export default function ProdottoPage() {
 
     return (
         <div className="container p-5">
+            <i className="bi bi-cart4 fs-1 text-bg-dark">{count}</i>
             <div className="single">
                 <img src={charat.image} alt="" />
                 <h2><strong>{charat.category}</strong></h2>
                 <p>{charat.description}</p>
                 <div className="price">
                     <h3 className="p-3">{charat.price}€</h3>
-                    <button>AGGIUNGI AL CARRELLO</button>
+                    <button onClick={() => addShop(charat.id)} >AGGIUNGI AL CARRELLO</button>
                 </div>
                 <div className="btn-ne">
                     <button type="button" onClick={() => navigate(`/prodotti/${parseInt(id) - 1}`)}>BACK</button>
